@@ -72,12 +72,6 @@ Actor-Critic Actor-Critic算法分为两部分，actor的前身是policy gradien
 * 运行`test.py`
 
 
-
-
-### 测试结果
-
-![test_result](pic/result1.gif)
-
 ## 遵循设计模式
 
 单例模式
