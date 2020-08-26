@@ -32,7 +32,7 @@
 │  │  │──contact.py                             #友方信息共享设置
 │  └─sensor                                     #传感器设置
 │     │──capture.py                             #雷达和碰撞检测
-├─imgs
+├─img
 │  ├─loss.pdf                                   #模型训练损失
 │  ├─AC.PNG                                     #AC算法模型
 ```
