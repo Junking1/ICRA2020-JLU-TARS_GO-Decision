@@ -1,0 +1,2 @@
+bool on_gimbal
+bool on_chassis

@@ -1,0 +1,6 @@
+escape_r      : 1
+chase_x       : 3.7
+chase_y       : 0.5
+manual_hp     : 1000
+e_lost        : true
+c_lost        : false

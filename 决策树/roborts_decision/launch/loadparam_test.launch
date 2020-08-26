@@ -1,0 +1,10 @@
+<launch> 
+	<master auto="start"/>
+  	<!-- load decision param  -->
+  	<rosparam command="load" file="$(find roborts_decision)/config/decision.yaml" />
+  	<rosparam command="load" file="$(find roborts_decision)/config/buffposition.yaml" />
+	<param name="paramtest_a" type="string" value="53.72.100.31" />
+	<param name="paramtest_b" type="int" value="2222" />
+	<node pkg="roborts_decision" type="loadparam_test_node" name="loadparam_test_node" output = "screen" respawn="true"> 
+    </node>
+</launch>

@@ -1,0 +1,110 @@
+syntax = "proto2";
+
+package roborts_decision;
+
+message Point {
+    optional float x = 1;
+    optional float y = 2;
+    optional float z = 3;
+
+    optional float roll  = 4;
+    optional float pitch = 5;
+    optional float yaw   = 6;
+}
+
+message EscapeConstraint {
+    optional float left_x_limit = 1;
+    optional float right_x_limit = 2;
+    optional float robot_x_limit = 3;
+    optional float left_random_min_x = 4;
+    optional float left_random_max_x = 5;
+    optional float right_random_min_x = 6;
+    optional float right_random_max_x = 7;
+}
+
+message SearchConstraint {
+  optional float x_limit = 1;
+  optional float y_limit = 2;
+}
+
+message WhirlVel {
+  optional float angle_x_vel = 1;
+  optional float angle_y_vel = 2;
+  optional float angle_z_vel = 3;
+}
+
+//message MultiRobot {
+  //optional Point start_position = 7;
+  //repeated Point start_position = 7;
+//}
+// added by INKY
+message Referee{
+  optional string game_result = 2;
+  optional string game_status = 1;
+  optional string game_survivor = 3;
+  optional string robort_status = 4;
+  optional string robort_heat = 5;
+  optional string robort_bonus = 6;
+  optional string robort_damage = 7;
+  optional string robort_shoot = 8;
+  optional string bonus_status = 9;
+  optional string local_name = 10;
+  optional string remote_name = 11;
+}
+
+message TopicName{
+    repeated string topic = 1;
+}
+
+message DecisionConfig {
+    repeated Point point = 1;
+    optional bool simulate = 2 [default = false];
+    optional bool master = 3 [default = false];
+    // optional EscapeConstraint escape = 4;
+    //optional Point escape = 4;
+    repeated Point escape = 4;
+    repeated Point buff_point = 5;
+    // optional SearchConstraint search_limit = 6;
+    //optional Point search_path = 6;
+    repeated Point search_path = 6;
+    optional WhirlVel whirl_vel = 7;
+    //optional MultiRobot wing_bot = 8;
+    //optional MultiRobot master_bot = 9;
+    repeated Point auxe_bot = 8;
+    repeated Point master_bot = 9;
+    optional Point wing_bot_task_point = 10;
+    repeated Point wait_point = 11;
+    repeated float square_x = 12;
+    repeated float square_y = 13;
+}
+
+message RobotInfo{
+  optional int32 hp = 1;
+  optional int32 heat = 2;
+  optional int32 bullets = 3;
+}
+
+message PunishInfo{
+  optional bool on_gimbal = 1;
+  optional bool on_chassis = 2;
+}
+
+message Status{
+  required bool is_running = 1;
+  enum RunStatus{
+    CHASE = 1;
+    ESCAPE = 2;
+    BUFF = 3;
+    SHOOT = 4;
+  };
+  optional RunStatus status = 2;
+  optional Point position = 3;
+}
+
+message MutualInfo{
+  optional RobotInfo robort_info = 1;
+  optional PunishInfo punish = 2;
+  optional Status status = 3;
+}
+
+
